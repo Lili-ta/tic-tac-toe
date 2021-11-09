@@ -7,13 +7,20 @@ export default class Game extends Component {
         step: 0,
         history: [{ squares: Array(9).fill(null) }],
       };
-    render() {
+      render() {
+        const history = this.state.history;
+        const current = history[this.state.step];
+        
+    
         return (
-            <div>
-                <Board
-                
-                />
+          <div className="game">
+            <div className="game-border">
+              <Board
+                onClick={(i) => this.onClickHandler(i)}
+                squares={current.squares}
+              />
             </div>
-        )
+          </div>
+        );
+      }
     }
-}
