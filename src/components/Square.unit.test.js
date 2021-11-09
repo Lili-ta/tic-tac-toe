@@ -1,9 +1,9 @@
 import React from 'react'
 import {render, fireEvent, waitFor, screen} from '@testing-library/react'
 import '@testing-library/jest-dom'
-import Squares from './Squares'
+import Square from './Square'
 
 it('should render button in squares', async () => {
-  render(<Squares/>)
+  render(<Square/>)
   expect(screen.getByRole('button')).toBeInTheDocument();
 })

@@ -1,10 +1,10 @@
 import React from 'react'
 
-export default function Squares(props) {
+export default function Square(props) {
     return (
         <div>
             {/* squares will come here */}
-            <button onClick={props.Onclick} data-testid="squares-buttons">
+            <button onClick={props.Onclick} className="square">
                 {props.value}
             </button>
         </div>
