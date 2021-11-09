@@ -1,9 +1,8 @@
 import './App.css';
-import Game from './components/Game';
 
 function App() {
   return (
-    <Game/>
+    "Tic-Tac-Toe App"
   );
 }
 
