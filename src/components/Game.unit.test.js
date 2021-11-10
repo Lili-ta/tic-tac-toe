@@ -4,15 +4,11 @@ import "@testing-library/jest-dom/extend-expect";
 import Game from "./Game";
 
 it("should render Game component", async () => {
-  const { getAllByRole } = testHelper.renderTest(<Game/>);
+  const { getAllByRole, getByText } = testHelper.renderTest(<Game/>);
   expect(getAllByRole("button")).toHaveLength(10);
+  expect(getByText("Start The Game")).toBeInTheDocument();
+  expect(getByText("Next Player Is X")).toBeInTheDocument();
 });
-
-it("should render Game component and fireevent with click on button", async () => {
-    const { getAllByRole } = testHelper.renderTest(<Game/>);
-    expect(getAllByRole("button")).toHaveLength(10);
-    fireEvent.click(getAllByRole("button")[0]);
-  });
 
   it("should render value in button after click on button and return winner in status", async () => {
     const { getAllByRole, getByText, getAllByText} = testHelper.renderTest(<Game/>);
@@ -32,7 +28,7 @@ it("should render Game component and fireevent with click on button", async () =
     expect(getByText("Winner Is X")).toBeInTheDocument();
   });
 
-  it("should jump to move that clicked", async () => {
+  it("should jump to move that clicked and number of buttons should change", async () => {
     const { getAllByRole, getByText, getAllByText} = testHelper.renderTest(<Game/>);
     expect(getAllByRole("button")).toHaveLength(10);
     fireEvent.click(getAllByRole("button")[0]);
@@ -48,6 +44,7 @@ it("should render Game component and fireevent with click on button", async () =
     expect(getAllByText("X")).toHaveLength(2);
     expect(getByText("Go To # 3")).toBeInTheDocument();
     expect(getByText("Next Player Is O")).toBeInTheDocument();
+    expect(getAllByRole("button")).toHaveLength(13);
     fireEvent.click(getByText("Go To # 2"));
     expect(getAllByText("X")).toHaveLength(1);
   });
