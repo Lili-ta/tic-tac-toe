@@ -22,4 +22,7 @@ it("should render Game component and fireevent with click on button", async () =
     fireEvent.click(getAllByRole("button")[1]);
     expect(getAllByText("X")).toHaveLength(1);
     expect(getByText("O")).toBeInTheDocument();
+    fireEvent.click(getAllByRole("button")[4]);
+    expect(getAllByText("X")).toHaveLength(2);
+    
   });
