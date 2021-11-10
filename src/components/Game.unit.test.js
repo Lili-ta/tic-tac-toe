@@ -7,3 +7,9 @@ it("should render Game component", async () => {
   const { getAllByRole } = testHelper.renderTest(<Game/>);
   expect(getAllByRole("button")).toHaveLength(9);
 });
+
+it("should render Game component and fireevent with click on button", async () => {
+    const { getAllByRole } = testHelper.renderTest(<Game/>);
+    expect(getAllByRole("button")).toHaveLength(9);
+    fireEvent.click(getAllByRole("button")[0]);
+  });
