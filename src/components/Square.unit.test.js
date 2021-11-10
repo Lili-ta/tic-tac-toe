@@ -1,9 +1,14 @@
-import React from 'react'
-import {render, fireEvent, waitFor, screen} from '@testing-library/react'
-import '@testing-library/jest-dom'
-import Square from './Square'
+import testHelper from "../testHelper";
+import { fireEvent, waitFor, screen } from "@testing-library/react";
+import "@testing-library/jest-dom/extend-expect";
+import Square from "./Square";
 
-it('should render button in squares', async () => {
-  render(<Square/>)
-  expect(screen.getByRole('button')).toBeInTheDocument();
-})
+const props = {
+  onClick: jest.fn(),
+  value: ["X"],
+};
+
+it("should render Board", async () => {
+  const { getByText } = testHelper.renderTest(<Square {...props} />);
+  expect(getByText("O")).toBeInTheDocument();
+});
