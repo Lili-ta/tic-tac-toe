@@ -6,12 +6,12 @@ import Game from "./Game";
 
 it("should render Game component", async () => {
   const { getAllByRole } = testHelper.renderTest(<Game/>);
-  expect(getAllByRole("button")).toHaveLength(9);
+  expect(getAllByRole("button")).toHaveLength(10);
 });
 
 it("should render Game component and fireevent with click on button", async () => {
     const { getAllByRole } = testHelper.renderTest(<Game/>);
-    expect(getAllByRole("button")).toHaveLength(9);
+    expect(getAllByRole("button")).toHaveLength(10);
     fireEvent.click(getAllByRole("button")[0]);
   });
 
@@ -20,7 +20,7 @@ it("should render Game component and fireevent with click on button", async () =
     let squares = ["X","O","X","O","X"];
     let output = check(squares);
     const { getAllByRole, getByText, getAllByText} = testHelper.renderTest(<Game/>);
-    expect(getAllByRole("button")).toHaveLength(9);
+    expect(getAllByRole("button")).toHaveLength(10);
     fireEvent.click(getAllByRole("button")[0]);
     expect(getByText("X")).toBeInTheDocument();
     fireEvent.click(getAllByRole("button")[1]);
@@ -38,5 +38,5 @@ it("should render Game component and fireevent with click on button", async () =
 
   it("should render next player is x for first move", async () => {
     const { getAllByRole, getByText, getAllByText} = testHelper.renderTest(<Game/>);
-    expect(getAllByRole("button")).toHaveLength(9);
+    expect(getAllByRole("button")).toHaveLength(10);
   });
