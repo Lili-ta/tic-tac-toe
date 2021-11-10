@@ -10,20 +10,39 @@ export default class Game extends Component {
   };
 
   onClickHandler = (i) => {
-    const prevHistory = this.state.history.slice(0, this.state.step + 1);
-    const lastHistory = prevHistory[prevHistory.length - 1];
-    const lastSquares = lastHistory.squares.slice();
-    const winner = calculateWinner(lastSquares);
-    if(winner || lastSquares[i]){return;}
-    lastSquares[i] = this.state.xIsNext ? "X" : "O";
+    const history = this.state.history.slice(0, this.state.step + 1);
+    const current = history[history.length - 1];
+    const squares = current.squares.slice();
+    const winner = calculateWinner(squares);
+    if (winner || squares[i]) {
+      return;
+    }
+    squares[i] = this.state.xIsNext ? "X" : "O";
     this.setState({
-      history: prevHistory.concat({
-        squares: lastSquares,
+      history: history.concat({
+        squares: squares,
       }),
       xIsNext: !this.state.xIsNext,
-      step: prevHistory.length,
+      step: history.length,
     });
   };
+  
+
+  // onClickHandler = (i) => {
+  //   const prevHistory = this.state.history.slice(0, this.state.step + 1);
+  //   const lastHistory = prevHistory[prevHistory.length - 1];
+  //   const lastSquares = lastHistory.squares.slice();
+  //   const winner = calculateWinner(lastSquares);
+  //   if(winner || lastSquares[i]){return;}
+  //   lastSquares[i] = this.state.xIsNext ? "X" : "O";
+  //   this.setState({
+  //     history: prevHistory.concat({
+  //       squares: lastSquares,
+  //     }),
+  //     xIsNext: !this.state.xIsNext,
+  //     step: prevHistory.length,
+  //   });
+  // };
   render() {
     const prevHistory = this.state.history;
     const lastHistory = prevHistory[this.state.step];
@@ -39,4 +58,4 @@ export default class Game extends Component {
       </div>
     );
   }
-}
+};
