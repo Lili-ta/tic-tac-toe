@@ -14,7 +14,7 @@ it("should render Game component and fireevent with click on button", async () =
     fireEvent.click(getAllByRole("button")[0]);
   });
 
-  it("should render value in button after click on button and return null if there is a winner", async () => {
+  it("should render value in button after click on button and return winner in status", async () => {
     const { getAllByRole, getByText, getAllByText} = testHelper.renderTest(<Game/>);
     expect(getAllByRole("button")).toHaveLength(10);
     fireEvent.click(getAllByRole("button")[0]);
