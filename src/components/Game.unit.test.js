@@ -40,5 +40,5 @@ it("should render Game component and fireevent with click on button", async () =
     const { getAllByRole, getByText, getAllByText} = testHelper.renderTest(<Game/>);
     expect(getAllByRole("button")).toHaveLength(10);
     expect(getByText("Start The Game")).toBeInTheDocument();
-    expect(getByText("Next Player Is O")).toBeInTheDocument();
+    expect(getByText("Next Player Is X")).toBeInTheDocument();
   });
