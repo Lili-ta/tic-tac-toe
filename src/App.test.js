@@ -3,5 +3,4 @@ import App from './App';
 
 it('renders learn react link', () => {
   render(<App />);
-  screen.debug();
 });

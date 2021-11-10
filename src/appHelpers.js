@@ -1,5 +1,5 @@
 export const calculateWinner = (squares) => {
-  const boardRows = [
+  const lines = [
     [0, 1, 2],
     [3, 4, 5],
     [6, 7, 8],
@@ -9,8 +9,8 @@ export const calculateWinner = (squares) => {
     [0, 3, 6],
     [2, 5, 8],
   ];
-  for (let i = 0; i < boardRows.length; i++) {
-    const [a, b, c] = boardRows[i];
+  for (let i = 0; i < lines.length; i++) {
+    const [a, b, c] = lines[i];
     if (squares[a] && squares[a] === squares[b] && squares[b] === squares[c]) {
       return squares[a];
     }
