@@ -10,5 +10,5 @@ const props = {
 
 it("should render Board", async () => {
   const { getByText } = testHelper.renderTest(<Square {...props} />);
-  expect(getByText("O")).toBeInTheDocument();
+  expect(getByText("X")).toBeInTheDocument();
 });
