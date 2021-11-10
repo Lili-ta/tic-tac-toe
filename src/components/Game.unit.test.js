@@ -15,7 +15,7 @@ it("should render Game component and fireevent with click on button", async () =
     fireEvent.click(getAllByRole("button")[0]);
   });
 
-  it("should render value in button after click on button", async () => {
+  it("should render value in button after click on button and return null if there is a winner", async () => {
     let check = jest.spyOn(handler,"calculateWinner");
     let squares = ["X","O","X","O","X"];
     let output = check(squares);
@@ -34,4 +34,9 @@ it("should render Game component and fireevent with click on button", async () =
     expect(getAllByText("X")).toHaveLength(3);
     fireEvent.click(getAllByRole("button")[3]);
     expect(output).toEqual(null)
+  });
+
+  it("should render next player is x for first move", async () => {
+    const { getAllByRole, getByText, getAllByText} = testHelper.renderTest(<Game/>);
+    expect(getAllByRole("button")).toHaveLength(9);
   });
