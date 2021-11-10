@@ -13,9 +13,7 @@ export default class Game extends Component {
     const prevHistory = this.state.history.slice(0, this.state.step + 1);
     const lastHistory = prevHistory[prevHistory.length - 1];
     const lastSquares = lastHistory.squares.slice();
-    console.log(lastSquares,"last")
     const winner = calculateWinner(lastSquares);
-    console.log(winner,"winner")
     if(winner || lastSquares[i]){return;}
     lastSquares[i] = this.state.xIsNext ? "X" : "O";
     this.setState({
